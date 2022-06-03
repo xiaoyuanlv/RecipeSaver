@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeCard: View {
     var recipe: Recipe
-    
+    @EnvironmentObject var recipesVM: RecipesViewModel
     var body: some View {
         VStack {
             AsyncImage(url: URL(string: recipe.image)) {
@@ -53,5 +53,6 @@ struct RecipeCard: View {
 struct RecipeCard_Previews: PreviewProvider {
     static var previews: some View {
         RecipeCard(recipe: Recipe.all[0])
+            .environmentObject(RecipesViewModel())
     }
 }
